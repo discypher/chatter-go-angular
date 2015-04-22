@@ -25,7 +25,7 @@ app.controller("MainCtrl", ["$scope", function($scope) {
   }
 
   $scope.send = function() {
-    if ( typeof $scope.msg != undefined) {
+    if ( typeof $scope.msg !== "undefined" ) {
       conn.send($scope.msg);
     }
     $scope.msg = "";
