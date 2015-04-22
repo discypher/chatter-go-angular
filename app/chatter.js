@@ -2,7 +2,6 @@ var app = angular.module("chatter", []);
 
 app.controller("MainCtrl", ["$scope", function($scope) {
   $scope.messages = [];
-  $scope.msg = "";
 
   var conn = new WebSocket("ws://localhost:3000/ws");
 
@@ -25,9 +24,10 @@ app.controller("MainCtrl", ["$scope", function($scope) {
   }
 
   $scope.send = function() {
-    if ( typeof $scope.msg !== "undefined" ) {
-      conn.send($scope.msg);
+    if(!$scope.msg) {
+      return;
     }
+    conn.send($scope.msg);
     $scope.msg = "";
   }
 }])

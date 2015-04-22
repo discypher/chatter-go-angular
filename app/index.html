@@ -2,15 +2,14 @@
 <html ng-app="chatter">
   <head>
     <title>Chatter</title>
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
   </head>
   <body ng-controller="MainCtrl">
     <div class="container">
       <ul>
-        <li ng-repeat="message in messages">{{message}}</li>
+        <li ng-repeat="message in messages track by $index">{{message}}</li>
       </ul>
       <input type="text" name="message" placeholder="Enter message" ng-model="msg">
-      <button type="button" class="btn btn-default" ng-click="send()">Send Message</button>
+      <button type="button" ng-click="send()">Send Message</button>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.3/angular.min.js"></script>
     <script src="chatter.js">
